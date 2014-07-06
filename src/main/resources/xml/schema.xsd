@@ -106,9 +106,9 @@
 			<element name="cargo" minOccurs="0" maxOccurs="unbounded">
 				<complexType>
 					<sequence>
-						<element name="id" type="tns:integerId"></element>
 						<element name="weight" type="positiveInteger"></element>
 					</sequence>
+					<attribute name="id" type="tns:integerId"></attribute>
 				</complexType>
 			</element>
 		</sequence>
@@ -119,7 +119,6 @@
 			<element name="passenger" minOccurs="0" maxOccurs="unbounded">
 				<complexType>
 					<sequence>
-						<element name="id" type="tns:integerId"></element>
 						<element name="fullName">
 							<simpleType>
 								<restriction base="string">
@@ -128,6 +127,7 @@
 							</simpleType>
 						</element>
 					</sequence>
+					<attribute name="id" type="tns:integerId"></attribute>
 				</complexType>
 			</element>
 		</sequence>
