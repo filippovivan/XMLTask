@@ -10,7 +10,7 @@ public abstract class RailroadCar extends TrainPart {
 	}
 
 	public void setAxelNumber(int axelPairsNumber) throws LogicalException {
-		if (!(axelPairsNumber < 2)) {
+		if (axelPairsNumber > 2) {
 			this.axelNumber = axelPairsNumber;
 		} else {
 			throw new LogicalException("Incorrect number of axis.");

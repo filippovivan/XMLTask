@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.filippov.by/training/Train"
+	xmlns:tns="http://www.filippov.by/training/Train">
+	<complexType name="TrainPart">
+		<sequence>
+			<element name="mass" type="positiveInteger"></element>
+		</sequence>
+		<attribute name="type" type="tns:CarType" use="required" />
+		<attribute name="id" type="tns:integerId" use="required" />
+	</complexType>
+	<simpleType name="CarType">
+		<restriction base="string">
+			<enumeration value="goods"></enumeration>
+			<enumeration value="passenger"></enumeration>
+			<enumeration value="locomotive"></enumeration>
+		</restriction>
+	</simpleType>
+	<complexType name="RailroadCar">
+		<complexContent>
+			<extension base="tns:TrainPart">
+				<sequence>
+					<element name="axis-pairs">
+						<simpleType>
+							<restriction base="integer">
+								<minInclusive value="2"></minInclusive>
+							</restriction>
+						</simpleType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="GoodsWagon">
+		<complexContent>
+			<extension base="tns:RailroadCar">
+				<sequence>
+					<element name="goodsType">
+						<simpleType>
+							<restriction base="string">
+								<enumeration value="open"></enumeration>
+								<enumeration value="covered"></enumeration>
+								<enumeration value="flat"></enumeration>
+								<enumeration value="tank"></enumeration>
+								<enumeration value="special"></enumeration>
+								<enumeration value="refrigirated"></enumeration>
+							</restriction>
+						</simpleType>
+					</element>
+					<element name="capacity" type="positiveInteger"></element>
+					<element name="goods" type="tns:Goods"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="PassengersCar">
+		<complexContent>
+			<extension base="tns:RailroadCar">
+				<sequence>
+					<element name="capacity" type="positiveInteger"></element>
+					<element name="passengerType">
+						<simpleType>
+							<restriction base="string">
+								<enumeration value="coach"></enumeration>
+								<enumeration value="secondary"></enumeration>
+								<enumeration value="dining"></enumeration>
+								<enumeration value="sleeping"></enumeration>
+							</restriction>
+						</simpleType>
+					</element>
+					<element name="passengers" type="tns:Passengers"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Locomotive">
+		<complexContent>
+			<extension base="tns:TrainPart">
+				<sequence>
+					<element name="power" type="positiveInteger"></element>
+					<element name="engineType">
+						<simpleType>
+							<restriction base="string">
+								<enumeration value="diesel"></enumeration>
+								<enumeration value="electric"></enumeration>
+							</restriction>
+						</simpleType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="train">
+		<complexType>
+			<sequence>
+				<element name="locomotive" type="tns:Locomotive" minOccurs="1"
+					maxOccurs="1"></element>
+				<element name="car" type="tns:RailroadCar" minOccurs="0"
+					maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+
+	<complexType name="Goods">
+		<sequence>
+			<element name="cargo" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<sequence>
+						<element name="id" type="tns:integerId"></element>
+						<element name="weight" type="positiveInteger"></element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Passengers">
+		<sequence>
+			<element name="passenger" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<sequence>
+						<element name="id" type="tns:integerId"></element>
+						<element name="fullName">
+							<simpleType>
+								<restriction base="string">
+									<pattern value="[A-ZА-Я][\\S]+"></pattern>
+								</restriction>
+							</simpleType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+
+	<simpleType name="integerId">
+		<restriction base="ID">
+			<pattern value="[0-9]{5,8}"></pattern>
+		</restriction>
+	</simpleType>
+</schema>

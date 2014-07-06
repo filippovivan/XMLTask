@@ -20,7 +20,7 @@ public class PassengerCar extends RailroadCar {
 		passengers = new ArrayList<>();
 	}
 
-	public boolean addPassenger(Passenger passengers) throws Exception {
+	public boolean addPassenger(Passenger passengers) throws LogicalException {
 		if (this.passengers.size() < seatingCapacity) {
 			return this.passengers.add(passengers);
 		} else {
