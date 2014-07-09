@@ -23,7 +23,7 @@ public class TrainHandler extends DefaultHandler {
 	private static final String EMPTY_ELEMENT = "";
 
 	private String currentTag;
-	private Train train = new Train();
+	private Train train;
 	private TrainPart element;
 	private Passenger currentPassenger;
 	private Cargo currentCargo;

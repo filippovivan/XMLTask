@@ -1,0 +1,62 @@
+2014-07-09 00:12:13 ERROR Launcher:26 - 
+by.bsu.traintask.exceptions.TechnicalException: Can't parce xml
+2014-07-09 00:18:22 INFO  Launcher:24 - 
+Locomotive  DIESEL 1200 517.
+Goods wagon  FLAT 124.
+Goods wagon  COVERED 828.
+Passenger car  DINING 123.
+
+2014-07-09 00:19:55 INFO  Launcher:24 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124.
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123.
+
+2014-07-09 00:26:09 INFO  Launcher:24 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124.
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123.
+
+2014-07-09 00:38:24 INFO  Launcher:30 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124.
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123.
+
+2014-07-09 02:22:02 INFO  Launcher:42 - 
+null
+
+2014-07-09 02:22:55 INFO  Launcher:42 - 
+null
+
+2014-07-09 02:22:59 INFO  Launcher:42 - 
+null
+
+2014-07-09 02:27:20 INFO  Launcher:42 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124. Cargo:
+432 23g
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123. Passengers:
+234 Ivan Filipov
+34 Ivan Filipov
+
+2014-07-09 02:37:16 INFO  Launcher:42 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124. Cargo:
+432 23 tons
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123. Passengers:
+234 Ivan Filipov
+34 Ivan Filipov
+
+2014-07-09 02:43:31 INFO  Launcher:32 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124. Cargo:
+432 23 tons
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123. Passengers:
+234 Ivan Filipov
+34 Ivan Filipov
+
