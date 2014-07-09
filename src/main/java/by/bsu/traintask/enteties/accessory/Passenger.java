@@ -10,12 +10,23 @@ public class Passenger {
 		this.fullName = fullName;
 	}
 
+	public Passenger() {
+	}
+
 	public int getId() {
 		return id;
 	}
 
 	public String getFullName() {
 		return fullName;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	@Override

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<train xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.filippov.by/train" xsi:schemaLocation="http://www.filippov.by/train train.xsd">
+	<locomotive id="l517">
+		<mass>42</mass>
+		<power>1200</power>
+		<engine-type>DIESEL</engine-type>
+	</locomotive>
+	<goods-wagon id="g124">
+		<mass>12</mass>
+		<axis-pairs>6</axis-pairs>
+		<goods-type>FLAT</goods-type>
+		<capacity>600</capacity>
+		<goods>
+			<cargo id="c432">
+				<weight>23</weight>
+			</cargo>
+		</goods>
+	</goods-wagon>
+	<goods-wagon id="g828">
+		<mass>10</mass>
+		<axis-pairs>6</axis-pairs>
+		<goods-type>COVERED</goods-type>
+		<capacity>700</capacity>
+	</goods-wagon>
+	<passengers-car id="p123">
+		<mass>21</mass>
+		<axis-pairs>6</axis-pairs>
+		<capacity>48</capacity>
+		<passenger-type>DINING</passenger-type>
+		<passengers>
+			<passenger id="q234">
+				<fullName>Ivan Filipov</fullName>
+			</passenger>
+			<passenger id="q34">
+				<fullName>Ivan Filipov</fullName>
+			</passenger>
+		</passengers>
+	</passengers-car>
+</train>

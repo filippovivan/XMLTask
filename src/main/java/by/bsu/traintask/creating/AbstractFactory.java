@@ -1,4 +1,4 @@
-package by.bsu.traintask.factories;
+package by.bsu.traintask.creating;
 
 import by.bsu.traintask.exceptions.LogicalException;
 import by.bsu.traintask.exceptions.TechnicalException;

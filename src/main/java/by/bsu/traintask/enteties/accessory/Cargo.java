@@ -12,6 +12,9 @@ public class Cargo {
 		this.owner = owner;
 	}
 
+	public Cargo() {
+	}
+
 	public Passenger getOwner() {
 		return owner;
 	}
@@ -26,6 +29,14 @@ public class Cargo {
 
 	public int getWeight() {
 		return weight;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
 	}
 
 	@Override
@@ -52,6 +63,6 @@ public class Cargo {
 
 	@Override
 	public String toString() {
-		return id + " " + weight + "g";
+		return id + " " + weight + " tons";
 	}
 }

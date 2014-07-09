@@ -51,7 +51,7 @@ public class GoodsWagon extends RailroadCar {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Goods wagon " + " " + type + " "
+		builder.append("Goods wagon " + " " + type + " ¹"
 				+ String.valueOf(getId()) + ".");
 		if (!goods.isEmpty()) {
 			builder.append(" Cargo:");

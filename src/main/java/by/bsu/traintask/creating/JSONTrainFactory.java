@@ -1,4 +1,4 @@
-package by.bsu.traintask.factories;
+package by.bsu.traintask.creating;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,7 +21,7 @@ import by.bsu.traintask.enteties.accessory.PassengerCarType;
 import by.bsu.traintask.exceptions.LogicalException;
 import by.bsu.traintask.exceptions.TechnicalException;
 
-public class JSONTrainFactory implements AbstractFactory<Train> {
+public class JSONTrainFactory implements TrainFactory {
 	private static final String PACCENGER_CAR_TYPE = "seatingtype";
 	private static final String PASSENGER_CAR_CAPACITY = "seatingcapacity";
 	private static final String GOODS_WAGON_CAPACITY = "capacity";

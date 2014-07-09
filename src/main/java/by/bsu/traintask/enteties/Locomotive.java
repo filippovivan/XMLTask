@@ -50,7 +50,7 @@ public class Locomotive extends TrainPart {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Locomotive " + " " + type + " " + enginePower + " "
+		builder.append("Locomotive " + " " + type + " " + enginePower + " ¹"
 				+ String.valueOf(getId()) + ".");
 		if (!drivers.isEmpty()) {
 			builder.append(" Drivers:");
