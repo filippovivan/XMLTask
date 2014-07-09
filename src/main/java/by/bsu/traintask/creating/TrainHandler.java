@@ -18,8 +18,24 @@ import by.bsu.traintask.enteties.accessory.Passenger;
 import by.bsu.traintask.enteties.accessory.PassengerCarType;
 import by.bsu.traintask.exceptions.LogicalException;
 
-public class TrainHandler extends DefaultHandler {
+class TrainHandler extends DefaultHandler {
 	private static final Logger LOG = Logger.getLogger(TrainHandler.class);
+	
+	private static final String WEIGHT = "weight";
+	private static final String GOODS_TYPE = "goods-type";
+	private static final String ENGINE_TYPE = "engine-type";
+	private static final String POWER = "power";
+	private static final String FULL_NAME = "fullName";
+	private static final String PASSENGER_TYPE = "passenger-type";
+	private static final String CAPACITY = "capacity";
+	private static final String AXIS_PAIRS = "axis-pairs";
+	private static final String MASS = "mass";
+	private static final String CARGO = "cargo";
+	private static final String PASSENGER = "passenger";
+	private static final String PASSENGERS_CAR = "passengers-car";
+	private static final String GOODS_WAGON = "goods-wagon";
+	private static final String ID = "id";
+	private static final String LOCOMOTIVE = "locomotive";
 	private static final String EMPTY_ELEMENT = "";
 
 	private String currentTag;
@@ -42,25 +58,27 @@ public class TrainHandler extends DefaultHandler {
 			Attributes attributes) throws SAXException {
 		currentTag = qName;
 		switch (currentTag) {
-		case "locomotive":
+		case LOCOMOTIVE:
 			element = new Locomotive();
-			element.setId(Integer.valueOf(attributes.getValue("id").substring(1)));
+			element.setId(Integer.valueOf(attributes.getValue(ID).substring(1)));
 			break;
-		case "goods-wagon":
+		case GOODS_WAGON:
 			element = new GoodsWagon();
-			element.setId(Integer.valueOf(attributes.getValue("id").substring(1)));
+			element.setId(Integer.valueOf(attributes.getValue(ID).substring(1)));
 			break;
-		case "passengers-car":
+		case PASSENGERS_CAR:
 			element = new PassengerCar();
-			element.setId(Integer.valueOf(attributes.getValue("id").substring(1)));
+			element.setId(Integer.valueOf(attributes.getValue(ID).substring(1)));
 			break;
-		case "passenger":
+		case PASSENGER:
 			currentPassenger = new Passenger();
-			currentPassenger.setId(Integer.valueOf(attributes.getValue("id").substring(1)));
+			currentPassenger.setId(Integer.valueOf(attributes.getValue(ID)
+					.substring(1)));
 			break;
-		case "cargo":
+		case CARGO:
 			currentCargo = new Cargo();
-			currentCargo.setId(Integer.valueOf(attributes.getValue("id").substring(1)));
+			currentCargo.setId(Integer.valueOf(attributes.getValue(ID)
+					.substring(1)));
 			break;
 		}
 	}
@@ -90,8 +108,7 @@ public class TrainHandler extends DefaultHandler {
 	public void endElement(String namespace, String localName, String qName)
 			throws SAXException {
 		currentTag = EMPTY_ELEMENT;
-		if (qName.equals("goods-wagon")
-				|| qName.equals("passengers-car")) {
+		if (qName.equals(GOODS_WAGON) || qName.equals(PASSENGERS_CAR)) {
 			try {
 				train.addCar((RailroadCar) element);
 			} catch (LogicalException e) {
@@ -100,17 +117,17 @@ public class TrainHandler extends DefaultHandler {
 			element = null;
 			return;
 		}
-		if (qName.equals("locomotive")) {
+		if (qName.equals(LOCOMOTIVE)) {
 			train.setLocomotive((Locomotive) element);
 			element = null;
 			return;
 		}
-		if (qName.equals("cargo")) {
+		if (qName.equals(CARGO)) {
 			((GoodsWagon) element).addGoods(currentCargo);
 			currentCargo = null;
 			return;
 		}
-		if (qName.equals("passenger")) {
+		if (qName.equals(PASSENGER)) {
 			try {
 				((PassengerCar) element).addPassenger(currentPassenger);
 			} catch (LogicalException e) {
@@ -125,19 +142,19 @@ public class TrainHandler extends DefaultHandler {
 			throws LogicalException {
 		String data = new String(ch, start, length);
 		switch (currentTag) {
-		case "mass":
+		case MASS:
 			element.setMass(Integer.valueOf(data));
 			break;
-		case "axis-pairs":
+		case AXIS_PAIRS:
 			((RailroadCar) element).setAxelNumber(Integer.valueOf(data));
 			break;
-		case "capacity":
+		case CAPACITY:
 			((PassengerCar) element).setSeatingCapacity(Integer.valueOf(data));
 			break;
-		case "passenger-type":
+		case PASSENGER_TYPE:
 			((PassengerCar) element).setType(PassengerCarType.valueOf(data));
 			break;
-		case "fullName":
+		case FULL_NAME:
 			currentPassenger.setFullName(data);
 			break;
 		}
@@ -147,13 +164,13 @@ public class TrainHandler extends DefaultHandler {
 			throws LogicalException {
 		String data = new String(ch, start, length);
 		switch (currentTag) {
-		case "mass":
+		case MASS:
 			element.setMass(Integer.valueOf(data));
 			break;
-		case "power":
+		case POWER:
 			((Locomotive) element).setEnginePower(Integer.valueOf(data));
 			break;
-		case "engine-type":
+		case ENGINE_TYPE:
 			((Locomotive) element).setType(LocomotiveType.valueOf(data));
 			break;
 		}
@@ -163,19 +180,19 @@ public class TrainHandler extends DefaultHandler {
 			throws LogicalException {
 		String data = new String(ch, start, length);
 		switch (currentTag) {
-		case "mass":
+		case MASS:
 			element.setMass(Integer.valueOf(data));
 			break;
-		case "axis-pairs":
+		case AXIS_PAIRS:
 			((RailroadCar) element).setAxelNumber(Integer.valueOf(data));
 			break;
-		case "capacity":
+		case CAPACITY:
 			((GoodsWagon) element).setCapacity(Integer.valueOf(data));
 			break;
-		case "goods-type":
+		case GOODS_TYPE:
 			((GoodsWagon) element).setType(GoodsWagonType.valueOf(data));
 			break;
-		case "weight":
+		case WEIGHT:
 			currentCargo.setWeight(Integer.valueOf(data));
 			break;
 		}

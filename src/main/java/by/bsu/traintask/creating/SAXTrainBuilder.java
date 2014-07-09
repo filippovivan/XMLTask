@@ -13,16 +13,13 @@ import by.bsu.traintask.enteties.Train;
 import by.bsu.traintask.exceptions.LogicalException;
 import by.bsu.traintask.exceptions.TechnicalException;
 
-public class SAXTrainFactory implements TrainFactory {
+public class SAXTrainBuilder extends TrainBuilder {
 	private static final SAXParserFactory factory = SAXParserFactory
 			.newInstance();;
 	private final SAXParser parcer;
 	private TrainHandler handler;
-	private String path;
-
-	public SAXTrainFactory(String path) throws TechnicalException {
+	public SAXTrainBuilder() throws TechnicalException {
 		super();
-		this.path = path;
 		try {
 			parcer = factory.newSAXParser();
 			handler = new TrainHandler();
@@ -34,8 +31,8 @@ public class SAXTrainFactory implements TrainFactory {
 
 	@Override
 	public Train createInstance() throws TechnicalException, LogicalException {
-		try (InputStream stream = SAXTrainFactory.class
-				.getResourceAsStream(path)) {
+		try (InputStream stream = SAXTrainBuilder.class
+				.getResourceAsStream(getPath())) {
 			parcer.parse(stream, handler);
 			return handler.getTrain();
 		} catch (IOException e) {
@@ -43,10 +40,6 @@ public class SAXTrainFactory implements TrainFactory {
 		} catch (SAXException e) {
 			throw new TechnicalException("Error while parcing", e);
 		}
-	}
-
-	public void setPath(String path) {
-		this.path = path;
 	}
 
 }

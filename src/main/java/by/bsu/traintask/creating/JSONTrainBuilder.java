@@ -21,7 +21,7 @@ import by.bsu.traintask.enteties.accessory.PassengerCarType;
 import by.bsu.traintask.exceptions.LogicalException;
 import by.bsu.traintask.exceptions.TechnicalException;
 
-public class JSONTrainFactory implements TrainFactory {
+public class JSONTrainBuilder extends TrainBuilder {
 	private static final String PACCENGER_CAR_TYPE = "seatingtype";
 	private static final String PASSENGER_CAR_CAPACITY = "seatingcapacity";
 	private static final String GOODS_WAGON_CAPACITY = "capacity";
@@ -36,13 +36,11 @@ public class JSONTrainFactory implements TrainFactory {
 	private static final String ENGINE_POWER = "engine";
 	private static final String CAR = "car";
 	private static final String LOCOMOTIVE = "locomotive";
-	private static final Logger LOG = Logger.getLogger(JSONTrainFactory.class);
+	private static final Logger LOG = Logger.getLogger(JSONTrainBuilder.class);
 
-	private String path;
-
-	public JSONTrainFactory(String path) {
+	public JSONTrainBuilder(String path) {
 		super();
-		this.path = path;
+		this.setPath(path);
 	}
 
 	@Override
@@ -51,7 +49,7 @@ public class JSONTrainFactory implements TrainFactory {
 		Scanner scanner = null;
 		Train train = null;
 		try {
-			scanner = new Scanner(new File(path));
+			scanner = new Scanner(new File(getPath()));
 			while (scanner.hasNext()) {
 				builder.append(scanner.next());
 			}
@@ -91,10 +89,6 @@ public class JSONTrainFactory implements TrainFactory {
 		}
 		LOG.info("Train successfully parced.");
 		return train;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
 	}
 
 	private RailroadCar parceCar(JSONObject trainPart)
