@@ -1,4 +1,4 @@
-package by.bsu.traintask.creating;
+package by.bsu.traintask.parcing;
 
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;

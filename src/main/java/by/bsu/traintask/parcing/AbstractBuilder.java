@@ -1,4 +1,4 @@
-package by.bsu.traintask.creating;
+package by.bsu.traintask.parcing;
 
 import by.bsu.traintask.exceptions.LogicalException;
 import by.bsu.traintask.exceptions.TechnicalException;

@@ -1,4 +1,4 @@
-package by.bsu.traintask.creating;
+package by.bsu.traintask.parcing;
 
 import java.io.IOException;
 import java.io.InputStream;

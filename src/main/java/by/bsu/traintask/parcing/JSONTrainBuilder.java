@@ -1,4 +1,4 @@
-package by.bsu.traintask.creating;
+package by.bsu.traintask.parcing;
 
 import java.io.File;
 import java.io.FileNotFoundException;

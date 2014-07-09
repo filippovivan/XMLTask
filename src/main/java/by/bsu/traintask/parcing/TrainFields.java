@@ -1,4 +1,4 @@
-package by.bsu.traintask.creating;
+package by.bsu.traintask.parcing;
 
 enum TrainFields {
 	TRAIN("train"), EMPTY_ELEMENT(""), AXIS_PAIRS("axis-pairs"), MASS("mass"), ID(

@@ -5,11 +5,12 @@ import java.io.InputStream;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import by.bsu.traintask.creating.TrainBuilder;
-import by.bsu.traintask.creating.TrainBuilderFactory;
+
 import by.bsu.traintask.enteties.Train;
 import by.bsu.traintask.exceptions.LogicalException;
 import by.bsu.traintask.exceptions.TechnicalException;
+import by.bsu.traintask.parcing.TrainBuilder;
+import by.bsu.traintask.parcing.TrainBuilderFactory;
 
 public class Launcher {
 

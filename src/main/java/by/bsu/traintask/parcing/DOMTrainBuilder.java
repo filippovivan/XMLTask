@@ -1,6 +1,6 @@
-package by.bsu.traintask.creating;
+package by.bsu.traintask.parcing;
 
-import static by.bsu.traintask.creating.TrainFields.*;
+import static by.bsu.traintask.parcing.TrainFields.*;
 
 import java.io.IOException;
 import java.io.InputStream;
