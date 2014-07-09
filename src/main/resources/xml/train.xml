@@ -15,6 +15,12 @@
 			<cargo id="c432">
 				<weight>23</weight>
 			</cargo>
+			<cargo id="c324567">
+				<weight>34</weight>
+			</cargo>
+			<cargo id="c543">
+				<weight>11</weight>
+			</cargo>
 		</goods>
 	</goods-wagon>
 	<goods-wagon id="g828">
@@ -22,6 +28,11 @@
 		<axis-pairs>6</axis-pairs>
 		<goods-type>COVERED</goods-type>
 		<capacity>700</capacity>
+		<goods>
+			<cargo id="c768">
+				<weight>43</weight>
+			</cargo>
+		</goods>
 	</goods-wagon>
 	<passengers-car id="p123">
 		<mass>21</mass>
@@ -34,6 +45,9 @@
 			</passenger>
 			<passenger id="q34">
 				<fullName>Ivan Filipov</fullName>
+			</passenger>
+			<passenger id="q256">
+				<fullName>Filipov Ivan</fullName>
 			</passenger>
 		</passengers>
 	</passengers-car>

@@ -20,7 +20,7 @@ import by.bsu.traintask.exceptions.LogicalException;
 
 class TrainHandler extends DefaultHandler {
 	private static final Logger LOG = Logger.getLogger(TrainHandler.class);
-	
+
 	private static final String WEIGHT = "weight";
 	private static final String GOODS_TYPE = "goods-type";
 	private static final String ENGINE_TYPE = "engine-type";
@@ -108,7 +108,9 @@ class TrainHandler extends DefaultHandler {
 	public void endElement(String namespace, String localName, String qName)
 			throws SAXException {
 		currentTag = EMPTY_ELEMENT;
-		if (qName.equals(GOODS_WAGON) || qName.equals(PASSENGERS_CAR)) {
+		switch (qName) {
+		case GOODS_WAGON:
+		case PASSENGERS_CAR:
 			try {
 				train.addCar((RailroadCar) element);
 			} catch (LogicalException e) {
@@ -116,25 +118,28 @@ class TrainHandler extends DefaultHandler {
 			}
 			element = null;
 			return;
-		}
-		if (qName.equals(LOCOMOTIVE)) {
-			train.setLocomotive((Locomotive) element);
-			element = null;
-			return;
-		}
-		if (qName.equals(CARGO)) {
-			((GoodsWagon) element).addGoods(currentCargo);
-			currentCargo = null;
-			return;
-		}
-		if (qName.equals(PASSENGER)) {
-			try {
-				((PassengerCar) element).addPassenger(currentPassenger);
-			} catch (LogicalException e) {
-				LOG.warn("Car with too much passengers occured");
+		case LOCOMOTIVE:
+			if (qName.equals(LOCOMOTIVE)) {
+				train.setLocomotive((Locomotive) element);
+				element = null;
+				return;
 			}
-			currentPassenger = null;
-			return;
+		case CARGO:
+			if (qName.equals(CARGO)) {
+				((GoodsWagon) element).addGoods(currentCargo);
+				currentCargo = null;
+				return;
+			}
+		case PASSENGER:
+			if (qName.equals(PASSENGER)) {
+				try {
+					((PassengerCar) element).addPassenger(currentPassenger);
+				} catch (LogicalException e) {
+					LOG.warn("Car with too much passengers occured");
+				}
+				currentPassenger = null;
+				return;
+			}
 		}
 	}
 
