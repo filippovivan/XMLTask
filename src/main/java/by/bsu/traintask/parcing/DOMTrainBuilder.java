@@ -1,7 +1,5 @@
 package by.bsu.traintask.parcing;
 
-import static by.bsu.traintask.parcing.TrainFields.*;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -43,8 +41,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 			DocumentBuilder documentBuilder = factory.newDocumentBuilder();
 			Document document = documentBuilder.parse(resource);
 			Train train = new Train();
-			NodeList locomotiveNode = document.getElementsByTagName(LOCOMOTIVE
-					.getValue());
+			NodeList locomotiveNode = document.getElementsByTagName(LOCOMOTIVE);
 			if (locomotiveNode.getLength() > 0
 					&& locomotiveNode.item(0).getNodeType() == Node.ELEMENT_NODE) {
 				train.setLocomotive(parceLocomotive((Element) locomotiveNode
@@ -64,8 +61,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 	private ArrayList<RailroadCar> parceCars(Document document)
 			throws LogicalException {
 		ArrayList<RailroadCar> cars = new ArrayList<>();
-		NodeList goodsWagonNodes = document.getElementsByTagName(GOODS_WAGON
-				.getValue());
+		NodeList goodsWagonNodes = document.getElementsByTagName(GOODS_WAGON);
 		for (int i = 0; i < goodsWagonNodes.getLength(); i++) {
 			Node wagonNode = goodsWagonNodes.item(i);
 			if (wagonNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -73,7 +69,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 			}
 		}
 		NodeList passengerCarsNodes = document
-				.getElementsByTagName(PASSENGERS_CAR.getValue());
+				.getElementsByTagName(PASSENGERS_CAR);
 		for (int i = 0; i < passengerCarsNodes.getLength(); i++) {
 			Node carNode = passengerCarsNodes.item(i);
 			if (carNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -88,8 +84,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 		PassengerCar car = new PassengerCar();
 		parceTrainPartInfo(car, carElement);
 		parceCarInfo(car, carElement);
-		int capacity = Integer.parseInt(getContent(carElement,
-				PASSENGER_CAPACITY));
+		int capacity = Integer.parseInt(getContent(carElement, CAPACITY));
 		PassengerCarType type = PassengerCarType.valueOf(getContent(carElement,
 				PASSENGER_TYPE));
 		car.setSeatingCapacity(capacity);
@@ -103,8 +98,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 		GoodsWagon wagon = new GoodsWagon();
 		parceTrainPartInfo(wagon, wagonElement);
 		parceCarInfo(wagon, wagonElement);
-		int capacity = Integer
-				.parseInt(getContent(wagonElement, GOODS_CAPACITY));
+		int capacity = Integer.parseInt(getContent(wagonElement, CAPACITY));
 		GoodsWagon.GoodsWagonType type = GoodsWagon.GoodsWagonType
 				.valueOf(getContent(wagonElement, GOODS_TYPE));
 		wagon.setCapacity(capacity);
@@ -127,8 +121,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 
 	private void parceTrainPartInfo(TrainPart car, Element carElement)
 			throws LogicalException {
-		int id = Integer.parseInt(carElement.getAttribute(ID.getValue())
-				.substring(1));
+		int id = Integer.parseInt(carElement.getAttribute(ID).substring(1));
 		int mass = Integer.parseInt(getContent(carElement, MASS));
 		car.setId(id);
 		car.setMass(mass);
@@ -140,8 +133,7 @@ public class DOMTrainBuilder extends TrainBuilder {
 		car.setAxelNumber(axis);
 	}
 
-	private String getContent(Element element, TrainFields type) {
-		return element.getElementsByTagName(type.getValue()).item(0)
-				.getTextContent();
+	private String getContent(Element element, String type) {
+		return element.getElementsByTagName(type).item(0).getTextContent();
 	}
 }

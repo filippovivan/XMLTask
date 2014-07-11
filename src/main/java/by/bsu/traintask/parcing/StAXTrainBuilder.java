@@ -22,23 +22,6 @@ import by.bsu.traintask.exceptions.TechnicalException;
 
 public class StAXTrainBuilder extends TrainBuilder {
 
-	private static final String ENGINE_TYPE = "engine-type";
-	private static final String POWER = "power";
-	private static final String WEIGHT = "weight";
-	private static final String CARGO = "cargo";
-	private static final String GOODS = "goods";
-	private static final String GOODS_TYPE = "goods-type";
-	private static final String FULL_NAME = "fullName";
-	private static final String PASSENGER = "passenger";
-	private static final String PASSENGERS = "passengers";
-	private static final String PASSENGER_TYPE = "passenger-type";
-	private static final String CAPACITY = "capacity";
-	private static final String AXIS_PAIRS = "axis-pairs";
-	private static final String MASS = "mass";
-	private static final String ID = "id";
-	private static final String LOCOMOTIVE = "locomotive";
-	private static final String PASSENGERS_CAR = "passengers-car";
-	private static final String GOODS_WAGON = "goods-wagon";
 	private XMLInputFactory inputFactory;
 
 	public StAXTrainBuilder() {

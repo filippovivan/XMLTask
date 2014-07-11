@@ -26,7 +26,7 @@ public class Launcher {
 	public static void main(String[] args) {
 		try {
 			TrainBuilder builder = TrainBuilderFactory
-					.create(TrainBuilderFactory.SAX);
+					.create(TrainBuilderFactory.DOM);
 			builder.setPath("/xml/train.xml");
 			Train train = builder.createInstance();
 			LOG.info(train);

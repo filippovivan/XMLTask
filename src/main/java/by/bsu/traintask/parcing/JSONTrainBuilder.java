@@ -27,15 +27,9 @@ public class JSONTrainBuilder extends TrainBuilder {
 	private static final String GOODS_WAGON_CAPACITY = "capacity";
 	private static final String GOODS_WAGON_TYPE = "goodswagontype";
 	private static final String AXIS = "axis";
-	private static final String MASS = "mass";
-	private static final String ID = "id";
-	private static final String GOODS = "goods";
-	private static final String PASSENGER = "passenger";
 	private static final String CAR_TYPE = "cartype";
-	private static final String ENGINE_TYPE = "enginetype";
 	private static final String ENGINE_POWER = "engine";
 	private static final String CAR = "car";
-	private static final String LOCOMOTIVE = "locomotive";
 	private static final Logger LOG = Logger.getLogger(JSONTrainBuilder.class);
 
 	public JSONTrainBuilder(String path) {

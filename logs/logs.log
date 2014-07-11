@@ -144,3 +144,44 @@ Passenger car  DINING ¹123. Passengers:
 234 Ivan Filipov
 34 Ivan Filipov
 
+2014-07-09 20:52:10 INFO  Launcher:32 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124. Cargo:
+432 23 tons
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123. Passengers:
+234 Ivan Filipov
+34 Ivan Filipov
+
+2014-07-11 20:17:59 INFO  Launcher:32 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124. Cargo:
+432 23 tons
+324567 34 tons
+543 11 tons
+Goods wagon  COVERED ¹828. Cargo:
+768 43 tons
+Passenger car  DINING ¹123. Passengers:
+234 Ivan Filipov
+34 Ivan Filipov
+256 Filipov Ivan
+
+2014-07-11 20:18:11 INFO  Launcher:32 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124. Cargo:
+432 23 tons
+324567 34 tons
+543 11 tons
+Goods wagon  COVERED ¹828. Cargo:
+768 43 tons
+Passenger car  DINING ¹123. Passengers:
+234 Ivan Filipov
+34 Ivan Filipov
+256 Filipov Ivan
+
+2014-07-11 20:18:24 INFO  Launcher:32 - 
+Locomotive  DIESEL 1200 ¹517.
+Goods wagon  FLAT ¹124.
+Goods wagon  COVERED ¹828.
+Passenger car  DINING ¹123.
+

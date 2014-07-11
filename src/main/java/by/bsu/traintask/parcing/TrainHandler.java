@@ -1,5 +1,5 @@
 package by.bsu.traintask.parcing;
-
+import static by.bsu.traintask.parcing.TrainBuilder.*;
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -20,22 +20,6 @@ import by.bsu.traintask.exceptions.LogicalException;
 
 class TrainHandler extends DefaultHandler {
 	private static final Logger LOG = Logger.getLogger(TrainHandler.class);
-
-	private static final String WEIGHT = "weight";
-	private static final String GOODS_TYPE = "goods-type";
-	private static final String ENGINE_TYPE = "engine-type";
-	private static final String POWER = "power";
-	private static final String FULL_NAME = "fullName";
-	private static final String PASSENGER_TYPE = "passenger-type";
-	private static final String CAPACITY = "capacity";
-	private static final String AXIS_PAIRS = "axis-pairs";
-	private static final String MASS = "mass";
-	private static final String CARGO = "cargo";
-	private static final String PASSENGER = "passenger";
-	private static final String PASSENGERS_CAR = "passengers-car";
-	private static final String GOODS_WAGON = "goods-wagon";
-	private static final String ID = "id";
-	private static final String LOCOMOTIVE = "locomotive";
 	private static final String EMPTY_ELEMENT = "";
 
 	private String currentTag;
